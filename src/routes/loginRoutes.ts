@@ -16,7 +16,10 @@ router.get('/', (req: Request, res: Response) => {
       </div>
     `)
   } else {
-    res.redirect('/login');
+    res.send(`<div>
+    <div>You are NOT logged in!</div>
+    <a href='/login'>Login</a>
+  </div>`);
   }
 });
 
@@ -45,6 +48,11 @@ router.post('/login', (req: Request, res: Response) => {
   } else {
     res.send('Invalid email or password');
   }
+});
+
+router.get('/logout', (req: Request, res: Response) => {
+  req.session = undefined;
+  res.redirect('/');
 });
 
 export { router };

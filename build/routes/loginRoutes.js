@@ -9,7 +9,7 @@ router.get('/', function (req, res) {
         res.send("\n      <div>\n        <div>You are logged in!</div>\n        <a href='/logout'>Logout</a>\n      </div>\n    ");
     }
     else {
-        res.redirect('/login');
+        res.send("<div>\n    <div>You are NOT logged in!</div>\n    <a href='/login'>Login</a>\n  </div>");
     }
 });
 router.get('/login', function (req, res) {
@@ -24,4 +24,8 @@ router.post('/login', function (req, res) {
     else {
         res.send('Invalid email or password');
     }
+});
+router.get('/logout', function (req, res) {
+    req.session = undefined;
+    res.redirect('/');
 });
