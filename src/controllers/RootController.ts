@@ -34,4 +34,4 @@ export class RootController {
   getProtected(req: Request, res: Response) {
     res.send('Welcome to protected route, logged in user');
   }
-}
+};

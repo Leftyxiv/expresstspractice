@@ -54,3 +54,4 @@ var RootController = /** @class */ (function () {
     return RootController;
 }());
 exports.RootController = RootController;
+;
