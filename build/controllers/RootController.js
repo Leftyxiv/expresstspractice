@@ -26,10 +26,10 @@ var RootController = /** @class */ (function () {
     }
     RootController.prototype.geRoot = function (req, res) {
         if (req.session && req.session.loggedIn) {
-            res.send("\n        <div>\n          <div>You are logged in!</div>\n          <a href='/logout'>Logout</a>\n        </div>\n      ");
+            res.send("\n        <div>\n          <div>You are logged in!</div>\n          <a href='/auth/logout'>Logout</a>\n        </div>\n      ");
         }
         else {
-            res.send("<div>\n      <div>You are NOT logged in!</div>\n      <a href='/login'>Login</a>\n    </div>");
+            res.send("<div>\n      <div>You are NOT logged in!</div>\n      <a href='/auth/login'>Login</a>\n    </div>");
         }
     };
     RootController.prototype.getProtected = function (req, res) {
