@@ -7,9 +7,10 @@ export function controller(routePrefix: string) {
     for (let key in target.prototype) {
       const value = target.prototype[key];
       const path = Reflect.getMetadata('path', target.prototype, key);
+      const method: string = Reflect.getMetadata('method', target.prototype, key);
 
       if (path) {
-        router.get(`${routePrefix}${path}`, value);
+        router[method](`${routePrefix}${path}`, value);
       }
     }
   };
